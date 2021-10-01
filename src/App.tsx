@@ -1,56 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import {
+  HashRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
+import { TheHeader } from './components/TheHeader';
+import ROUTES from './constants/routes';
+import { Calendar } from './pages/Calendar';
+import { Home } from './pages/Home';
+import { Todos } from './pages/Todos';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div className='App'>
+      <Router>
+        <TheHeader />
+        <Switch>
+          <Route
+            exact
+            path={ROUTES.HOME}
+            component={Home}
+          />
+          <Route
+            exact
+            path={ROUTES.TODO_LIST}
+            component={Todos}
+          />
+          <Route
+            exact
+            path={ROUTES.CALENDAR}
+            component={Calendar}
+          />
+        </Switch>
+      </Router>
     </div>
   );
 }
