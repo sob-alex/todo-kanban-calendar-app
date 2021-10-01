@@ -3,7 +3,7 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-import { TheHeader } from './components/TheHeader';
+import  TheHeader  from './components/TheHeader';
 import ROUTES from './constants/routes';
 import { Calendar } from './pages/Calendar';
 import { Home } from './pages/Home';
